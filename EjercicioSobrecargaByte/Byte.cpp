@@ -1,5 +1,6 @@
 #include "Byte.h"
 #include <cmath>
+#include <string>
 
 
 Byte::Byte(void)
@@ -142,7 +143,44 @@ void Byte::obtenerOctal(int resultado) {
 
 void Byte::obtenerHexadecimal(int resultado) {
 
+	std::string hex;
+	int cont = 0;
+	int aux = 0;
+	int i = 7;
+	do {
 
+		for (int i = 0; i < 4; i++) {
+			if (i < 0)
+				break;
+			aux += (pow(2, i) * this->bits[i]);
+			i--;
+		}
+
+		if (aux >= 0 && aux <= 9)
+			hex = std::to_string(aux) + hex;
+		else if (aux == 10) {
+			hex = 'A' + hex;
+		}
+		else if (aux == 11) {
+			hex = 'B' + hex;
+		}
+		else if (aux == 12) {
+			hex = 'C' + hex;
+		}
+		else if (aux == 13) {
+			hex = 'D' + hex;
+		}
+		else if (aux == 14) {
+			hex = 'E' + hex;
+		}
+		else if (aux == 15) {
+			hex = 'F' + hex;
+		}
+
+		aux = 0;
+		cont++;
+
+	} while (i >= 0);
 }
 
 Byte Byte::operator~(void) {
@@ -153,6 +191,8 @@ Byte Byte::operator~(void) {
 
 		nuevo.bits[i] = this->bits[i] == 1 ? 0 : 1;
 	}
+
+	return nuevo;
 }
 
 Byte operator-(const Byte& b1, const Byte& b2) {
@@ -216,27 +256,42 @@ Byte operator-(const Byte& b1, const Byte& b2) {
 Byte operator*(const Byte& b1, const Byte& b2) {
 
 	Byte nuevo;
+	int acarreo = 0;
 
 	for (int i = 8 - 1; i >= 0; i--) {
 
 		int resultado = 0;
+		int a = i - 1;	
+		if (b2.bits[i] == 0 && b1.bits[i] == 0 ) {
+			resultado = 0;
+			acarreo = 0;
 
-		if (b2.bits[i] == 0 && b1.bits[i] == 0) {
-			resultado = 0;
+			if (b1.bits[a] == 0 && b2.bits[a] == 0) {
+				resultado = 0;
+				acarreo = 1;
+			}
+			else {	
+				resultado = 10;
+			}
+			if (b1.bits[a] == 1 || b2.bits[a] == 1) {
+				resultado = 1;
+			}
+
 		}
-		else if (b1.bits[i] == 1 && b2.bits[i] == 0) {
+		if (b1.bits[i] == 1 && b2.bits[i] == 0) {
 			resultado = 0;
+			acarreo = 0;
 		}
-		else if (b1.bits[i] == 0 && b2.bits[i] == 1) {
+		if (b1.bits[i] == 0 && b2.bits[i] == 1) {
 			resultado = 0;
+			acarreo = 0;
 		}
-		else if (b2.bits[i] == 1 && b1.bits[i] == 1) {
+		if (b2.bits[i] == 1 && b1.bits[i] == 1) {
 			resultado = 1;
+			acarreo = 0;
 		}
-
 		nuevo.bits[i] = resultado;
 	}
-
 	return nuevo;
 }
 
