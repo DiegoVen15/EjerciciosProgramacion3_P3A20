@@ -22,13 +22,13 @@ private:
 public:
 
 	Cadena(void);
-	Cadena(const char*); 
+	Cadena(const char*);
 
 	void setCadena(const char*);
 
 	const char* getCadena(void);
 
 	int strCmp(Cadena);
-};
+	string subStr(size_t, size_t);
 
-#endif // !CADENA_H
+}

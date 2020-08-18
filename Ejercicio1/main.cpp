@@ -19,5 +19,10 @@ int main() {
 	Cadena c4;
 	c4 = c0 + c3;
 
+	string r = c4.subStr(1, 3);
+
+	cout << "El string es: " << r;
+
+
 	return 0;
 }

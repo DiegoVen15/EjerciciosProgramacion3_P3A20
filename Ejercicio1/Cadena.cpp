@@ -64,14 +64,30 @@ int Cadena::strCmp(Cadena cad) {
 	if (c.tamano == cad.tamano) {
 
 		c.strCmp(cad) == 0;
+		return 0;
 	}
 	else if (c.tamano < cad.tamano) {
 
 		c.strCmp(cad) < 0;
+		return -1;
 	}
-	else {
+	else if(c.tamano > cad.tamano) {
 		c.strCmp(cad) > 0;
+		return 1;
 	}
+}
 
-	return strCmp(cad);
+string Cadena::subStr(size_t pos, size_t len) {
+
+	len = pos + len;
+
+	if (pos == strlen(cadena)) {
+		return " ";
+	}
+	else if (pos > strlen(cadena)) {
+		return;
+	}
+	else if (len > strlen(cadena)) {
+		return cadena;
+	}
 }
