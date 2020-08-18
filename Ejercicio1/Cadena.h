@@ -2,6 +2,7 @@
 #ifndef CADENA_H
 #define CADENA_H
 
+#define LIMITE 30
 #include <iostream>
 #include <conio.h>
 #include <cstring>
@@ -16,8 +17,7 @@ class Cadena {
 
 private:
 	const char* cadena;
-	//char* c4;
-	//int tamano = strlen(c0) + strlen(c3.c_str());
+	int tamano = strlen(cadena);
 
 public:
 
@@ -27,6 +27,8 @@ public:
 	void setCadena(const char*);
 
 	const char* getCadena(void);
+
+	int strCmp(Cadena);
 };
 
 #endif // !CADENA_H
