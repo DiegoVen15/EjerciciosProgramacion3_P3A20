@@ -88,6 +88,6 @@ string Cadena::subStr(size_t pos, size_t len) {
 		return;
 	}
 	else if (len > strlen(cadena)) {
-		return cadena;
+		return cadena-pos;
 	}
 }
