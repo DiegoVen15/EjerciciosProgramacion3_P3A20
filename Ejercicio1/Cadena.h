@@ -15,15 +15,18 @@ class Cadena {
 	friend Cadena operator+(const Cadena&, const Cadena&);
 
 private:
-	const char* c0;
-	const char* c3;
-	char* c4;
-	int tamano = strlen(c0) + strlen(c3.c_str());
+	const char* cadena;
+	//char* c4;
+	//int tamano = strlen(c0) + strlen(c3.c_str());
 
 public:
 
 	Cadena(void);
-	Cadena(const char*, const char*); 
+	Cadena(const char*); 
+
+	void setCadena(const char*);
+
+	const char* getCadena(void);
 };
 
 #endif // !CADENA_H
