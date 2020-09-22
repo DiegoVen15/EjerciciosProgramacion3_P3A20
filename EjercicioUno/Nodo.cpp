@@ -34,5 +34,20 @@ int Nodo::getCredit_card() {
 
 int Nodo::getDate() {
 
-	return this->
+	return this->date;
+}
+
+int Nodo::getYear() {
+
+	return this->year;
+}
+
+int Nodo::getMonth() {
+
+	return this->month;
+}
+
+double Nodo::getTotal() {
+
+	return this->total;
 }

@@ -139,11 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArbolBinario.h" />
     <ClInclude Include="ListaEnlazadaSimple.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="NodoArbol.h" />
     <ClInclude Include="utilerias.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ArbolBinario.cpp" />
     <ClCompile Include="ListaEnlazadaSimple.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nodo.cpp" />

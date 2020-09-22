@@ -25,6 +25,7 @@ public:
 	char* getLastName();
 	int getCredit_card();
 	int getDate();
+	int getYear();
 	int getMonth();
 	double getTotal();
 };
