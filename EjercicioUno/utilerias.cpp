@@ -7,7 +7,7 @@ using namespace std;
 
 int obtenerCantidadRegistros() {
 
-	fstream obtener("datab.bin", ios::in | ios::binary);
+	ifstream obtener("datab.bin", ios::in | ios::binary);
 
 	if (!obtener) {
 		
@@ -24,7 +24,7 @@ int obtenerCantidadRegistros() {
 
 void imprimirCantidadPorTipoPago() {
 
-	fstream obtener("datab.bin", ios::in | ios::binary);
+	ifstream obtener("datab.bin", ios::in | ios::binary);
 
 	if (!obtener) {
 
