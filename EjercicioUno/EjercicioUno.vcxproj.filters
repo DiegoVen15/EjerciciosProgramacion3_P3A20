@@ -18,9 +18,18 @@
     <ClInclude Include="utilerias.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ListaEnlazadaSimple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="utilerias.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEnlazadaSimple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

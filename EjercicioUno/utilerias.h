@@ -15,7 +15,7 @@ struct registro {
 	char payment_type[10];
 	double total;
 	char business_type[20];
-	char business_name[50]
+	char business_name[50];
 };
 
 	int obtenerCantidadRegistros();

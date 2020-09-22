@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ListaEnlazadaSimple.h" />
     <ClInclude Include="utilerias.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ListaEnlazadaSimple.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="utilerias.cpp" />
   </ItemGroup>
   <ItemGroup>

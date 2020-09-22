@@ -7,53 +7,60 @@ using namespace std;
 
 int obtenerCantidadRegistros() {
 
-	ifstream obtener("datab.bin", ios::in | ios::binary);
+	fstream obtener("datab.bin", ios::in | ios::binary);
 
 	if (!obtener) {
 		
-		cout << "Error al abrir archivo";
-		return;
+		cout << "Error al abrir archivo\n";
+		return -1;
 	}
 
-	obtener.seekg(0, ios::beg);
+	obtener.seekg(0, ios::end);
+	
+	int pos = obtener.tellg();
 
-	registro actual;
-
-	obtener.read(reinterpret_cast<char*>(&actual), sizeof(registro));
-
-	while (!obtener.eof()) {
-		cout << "Numero de registros: " << actual.id << "\n";
-
-		obtener.read(reinterpret_cast<char*>(&actual), sizeof(registro));
-	}
-
-	obtener.close();
+	return pos / sizeof(obtener);
 }
 
 void imprimirCantidadPorTipoPago() {
 
-	ifstream obtener("datab.bin", ios::in | ios::binary);
+	fstream obtener("datab.bin", ios::in | ios::binary);
 
 	if (!obtener) {
 
-		cout << "Error al abrir archivo";
+		cout << "Error al abrir archivo\n";
 		return;
 	}
+
+	int cashRegistro = 0;
+	int creditRegistro = 0;
+	int NARegistro = 0;
 
 	obtener.seekg(0, ios::beg);
 
 	registro actual;
 
+	string tipoPago;
 	obtener.read(reinterpret_cast<char*>(&actual), sizeof(registro));
 
 	while (!obtener.eof()) {
-		cout << "Tipos de pago:\n";
-		cout << "Cash: " << actual.payment_type << "\n";
-		cout << "Credit: " << actual.payment_type << "\n";
-		cout << "NA: " << actual.payment_type << "\n";
 
+		tipoPago = actual.payment_type;
+
+		if (tipoPago == "Cash") {
+			cashRegistro++;
+		}
+		else if (tipoPago == "Credit") {
+			creditRegistro++;
+		}
+		else if (tipoPago == "NA") {
+			NARegistro++;
+		}
+		
 		obtener.read(reinterpret_cast<char*>(&actual), sizeof(registro));
 	}
+
+	cout << "Tipos de Registro < Cash: " << cashRegistro << ", Credit: " << creditRegistro << ", NA: " << NARegistro << " >\n";
 
 	obtener.close();
 }
